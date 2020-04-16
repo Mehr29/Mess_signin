@@ -1,6 +1,6 @@
 <?php
 
-include('admin_page.php')
+include('mess_page.php')
 
 ?>
 
@@ -20,11 +20,9 @@ include('admin_page.php')
      <table class="table table-striped table-bordered" id="student_table">
       <thead>
        <tr>
-       <th>Grace ID</th>
-        <th>Requested By</th>
-        <th>Requested for(Date)</th>
+        <th>Student Name</th>
         <th>ID</th>
-              
+              <th>Total graces</th>
        <!-- <th>Edit</th>
         <th>Delete</th>-->
        </tr>
@@ -32,14 +30,13 @@ include('admin_page.php')
       <tbody>
       <?php 
       
-      $result=$link->query("SELECT * FROM `grace_info`") or die(mysqli_error());
+      $result=$link->query("SELECT * FROM `student_info`INNER JOIN `mess_info` ON student_info.MESS= mess_info.mess_name WHERE mess_id='".$_SESSION['mess_id']."'" ) or die(mysqli_error());
       while($row = $result->fetch_array()){   
       ?>
       <tr>
-      <td><?php echo $row['Grace_id'] ?></td>
-      <td><?php echo $row['name'] ?></td>
-      <td><?php echo $row['Date'] ?></td>
-      <td><?php echo $row['id'] ?></td>
+      <td><?php echo $row['Name'] ?></td>
+      <td><?php echo $row['ID'] ?></td>
+      <td><?php echo $row['Total remaining Graces'] ?></td>
       </tr>
       <?php
       }

@@ -20,11 +20,12 @@ include('admin_page.php')
      <table class="table table-striped table-bordered" id="student_table">
       <thead>
        <tr>
-       <th>Grace ID</th>
-        <th>Requested By</th>
-        <th>Requested for(Date)</th>
+        <th>Student Name</th>
         <th>ID</th>
-              
+        <th>Registered Mess</th>
+        <th>Meal type</th>
+              <th>Time</th>
+              <th>Date</th>
        <!-- <th>Edit</th>
         <th>Delete</th>-->
        </tr>
@@ -32,14 +33,16 @@ include('admin_page.php')
       <tbody>
       <?php 
       
-      $result=$link->query("SELECT * FROM `grace_info`") or die(mysqli_error());
+      $result=$link->query("SELECT * FROM `mess_attendance`") or die(mysqli_error());
       while($row = $result->fetch_array()){   
       ?>
       <tr>
-      <td><?php echo $row['Grace_id'] ?></td>
-      <td><?php echo $row['name'] ?></td>
-      <td><?php echo $row['Date'] ?></td>
-      <td><?php echo $row['id'] ?></td>
+      <td><?php echo $row['student_name'] ?></td>
+      <td><?php echo $row['ID'] ?></td>
+      <td><?php echo $row['Mess'] ?></td>
+      <td><?php echo $row['type'] ?></td>
+      <td><?php echo $row['time'] ?></td>
+      <td><?php echo $row['date'] ?></td>
       </tr>
       <?php
       }

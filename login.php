@@ -1,7 +1,9 @@
 <?php
     session_start();
     include('admin/db_connect.php');
-    
+   
+    $err="";
+   
     $studentname = $_POST['student_user_name'];
     $studentpassword= $_POST['student_password'];
     $idcheck=$_SESSION['mess_id'];
@@ -18,7 +20,7 @@
         $result3=$link->query("SELECT * FROM `grace_info` WHERE `uid` = '$studentname' AND `Date`='$date'")  or die(mysqli_error());
         $row1 = mysqli_fetch_array($result3);
         if($row1>0){
-        echo 'Applied for grace';}
+        $err.="<div class='alert alert-danger' id='err'>Applied for grace</div>";}
         else{
           $type="";
           
@@ -46,20 +48,20 @@
           $name1=$row1['Name'];
           $id=$row1['ID'];  
           if(isset($_COOKIE[$name])){
-                echo "You Have already taken your meal";
+                $err.= "<div class='alert alert-danger'>You Have already taken your meal</div>";
             }
           else{
               setcookie("$name","1234",strtotime("+5 hours 30 min")+60*60*2);
-              $query1="INSERT INTO `mess_attendance` VALUES('','$name1','$id','$type','$date1', '$time')";
+              $query1="INSERT INTO `mess_attendance` VALUES('','$name1','$id','$type','$date1', '$time','$studentpassword')";
               mysqli_query($link,$query1)or die(mysqli_error());
-            echo "".$row1['Name']." <label class = 'text-info'> ,You have entered in at  ".date("h:m:s a", strtotime($time))."</label>";
+            $err.= "<div class='alert alert-sucess' id ='err'> ".$row1['Name']." <label class = 'text-info'> ,You have entered in at  ".date("h:m:s a", strtotime($time))."</label></div>";
             }
   }}
 else
-echo 'You are not registered here';
+$err.= "<div class='alert alert-danger' id='err'>You are not registered here</div>";
 }
 else if($row == 0){
-		echo 'Invalid credentials';
+		$err.= "<div class='alert alert-danger' id='err'>Invalid credentials</div>";
   }
 
 	?>
@@ -83,6 +85,7 @@ else if($row == 0){
  <div id="heading"><h1>Student Signin System</h1></div>
 </div>
 
+<?php echo $err  ?>
 
 <div class="container">
   <div class="row">
@@ -124,10 +127,13 @@ else if($row == 0){
 
 </body>
 </html>
-<!--<script>
+
+<script>
 $(document).ready(function(){
-	$('#close').click(function(){
-    document.location.href="attendance.php";
-  });
+  
+$('#student_login').click(setTimeout(divremoval,4000))
+function divremoval(){
+  $('#err').remove();
+}
 });
-</script>-->
+</script>

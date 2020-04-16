@@ -10,7 +10,7 @@ session_start();
 {
   //header('location:admin_login.php');
 }
-$query="SELECT mess_username FROM `mess_info` WHERE mess_id='".$_SESSION['id']."'";
+$query="SELECT * FROM `mess_info` WHERE mess_id='".$_SESSION['mess_id']."'";
 $result=mysqli_query($link,$query);
 $row=mysqli_fetch_array($result);
 
@@ -39,6 +39,7 @@ $row=mysqli_fetch_array($result);
 <body>
 
 <div class="jumbotron-small text-center" style="margin-bottom:0">
+  <div align="left"></div>
   <h1>Mess Attendance System</h1>
 </div>
 
@@ -50,17 +51,17 @@ $row=mysqli_fetch_array($result);
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       
-      <li class="nav-item">
-        <a class="nav-link" href="student.php">Student</a>
+      <li class="nav-item m-l-3">
+        <a class="nav-link" href="student.php">Registered Students</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item m-l-3">
         <a class="nav-link" href="attendance.php">Attendance</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item m-l-3">
         <a class="nav-link" href="logout.php">Logout</a>
       </li>
-      <li class="nav-item ">
-      <a class="nav-link " href="#">Hi, <?php echo $row['mess_username'] ?></a>
+      <li class="nav-item ml-xl-3" >
+      <a class="nav-link " href="#">Signed In- <?php echo $row['mess_name'] ?></a>
         
       </li>  
     </ul>

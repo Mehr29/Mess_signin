@@ -16,7 +16,7 @@ $row= mysqli_fetch_array($result);
  if($row){
 $_SESSION['mess_id']=$row['mess_id'];
 //echo $_SESSION['id'];
-header('location:mess_page.php');
+header('location:index.php');
 }
 else{
   $error_mess_user_name.='Invalid Credentials';     
