@@ -113,7 +113,7 @@ else if($row == 0){
             </div>
             <div class="form-group">
               <input type="submit" name="student_login" id="student_login" class="btn btn-info" value="Login" />
-              <button name="close" id="close" class="btn btn-danger ml-md-10" ><a id="link" href="mess_page.php">Close</a></button>
+              <button name="close" id="close" class="btn btn-danger ml-md-10" ><a id="link" href="index.php">Close</a></button>
             
               
             </div>

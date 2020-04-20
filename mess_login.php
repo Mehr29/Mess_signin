@@ -4,18 +4,19 @@
 
 include('admin/db_connect.php');
 session_start();
+
+
 $error_mess_user_name='';
 
-if($_POST['mess_login']){
+if($_POST){
   
-//if($_POST['admin_user_name'] != '' and $_POST['admin_password'] != ''){
   $query= "SELECT * FROM `mess_info` WHERE mess_username='".$_POST['mess_user_name']."' AND  mess_password='".$_POST['mess_password']."' LIMIT 1";
 
 $result=mysqli_query($link,$query);
 $row= mysqli_fetch_array($result);
  if($row){
 $_SESSION['mess_id']=$row['mess_id'];
-//echo $_SESSION['id'];
+
 header('location:index.php');
 }
 else{
@@ -32,10 +33,7 @@ else{
 //}
 
 }
-//if(isset($_SESSION["admin_id"]))
-
-  //header('location:index.php');
-
+//
 
 
 ?>

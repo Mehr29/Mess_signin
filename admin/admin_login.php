@@ -6,7 +6,7 @@ include('db_connect.php');
 session_start();
 $error_admin_user_name='';
 
-if($_POST['admin_login']){
+if($_POST){
   
 //if($_POST['admin_user_name'] != '' and $_POST['admin_password'] != ''){
   $query= "SELECT * FROM `admin_info` WHERE username='".$_POST['admin_user_name']."' AND  password='".$_POST['admin_password']."' LIMIT 1";
@@ -14,27 +14,16 @@ if($_POST['admin_login']){
 $result=mysqli_query($link,$query);
 $row= mysqli_fetch_array($result);
  if($row){
-$_SESSION['id']=$row['admin_id'];
+$_SESSION['admin_id']=$row['admin_id'];
 //echo $_SESSION['id'];
 header('location:admin_page.php');
 }
 else{
   $error_admin_user_name.='Invalid Credentials';     
 }
-//}
-//else{
-  //if($_POST['admin_user_name']==''){
-    //$error_admin_user_name='Username required';
-  //}
-  //if($_POST['admin_password']==''){
-    //$error_admin_password='Password required';
- // }
-//}
 
 }
-//if(isset($_SESSION["admin_id"]))
 
-  //header('location:index.php');
 
 
 

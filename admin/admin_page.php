@@ -6,11 +6,11 @@ include('db_connect.php');
 
 session_start();
 
-//if(isset($_SESSION["admin_id"]))
+if(!isset($_SESSION["admin_id"]))
 {
-  //header('location:admin_login.php');
+  header('location:admin_login.php');
 }
-$query="SELECT username FROM `admin_info` WHERE admin_id='".$_SESSION['id']."'";
+$query="SELECT username FROM `admin_info` WHERE admin_id='".$_SESSION['admin_id']."'";
 $result=mysqli_query($link,$query);
 $row=mysqli_fetch_array($result);
 
