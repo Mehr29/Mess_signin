@@ -3,7 +3,7 @@
     include('admin/db_connect.php');
    
     $err="";
-   
+    if($_POST){
     $studentname = $_POST['student_user_name'];
     $studentpassword= $_POST['student_password'];
     $idcheck=$_SESSION['mess_id'];
@@ -63,8 +63,10 @@ $err.= "<div class='alert alert-danger' id='err'>You are not registered here</di
 else if($row == 0){
 		$err.= "<div class='alert alert-danger' id='err'>Invalid credentials</div>";
   }
-
-	?>
+//if(){
+  //header('location:index.php');
+//}
+}?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -111,7 +113,7 @@ else if($row == 0){
             </div>
             <div class="form-group">
               <input type="submit" name="student_login" id="student_login" class="btn btn-info" value="Login" />
-             
+              <button name="close" id="close" class="btn btn-danger ml-md-10" ><a id="link" href="mess_page.php">Close</a></button>
             
               
             </div>
@@ -124,9 +126,16 @@ else if($row == 0){
     </div>
   </div>
 </div>
+<style>
+  #link{
+    text-decoration:none;
+    color:white;
+  }
+</style>
 
 </body>
 </html>
+
 
 <script>
 $(document).ready(function(){
@@ -134,6 +143,9 @@ $(document).ready(function(){
 $('#student_login').click(setTimeout(divremoval,4000))
 function divremoval(){
   $('#err').remove();
+
 }
+
+
 });
 </script>

@@ -6,9 +6,9 @@ include('admin/db_connect.php');
 
 session_start();
 
-//if(isset($_SESSION["admin_id"]))
+if(!isset($_SESSION["mess_id"]))
 {
-  //header('location:admin_login.php');
+  header('location:mess_login.php');
 }
 $query="SELECT * FROM `mess_info` WHERE mess_id='".$_SESSION['mess_id']."'";
 $result=mysqli_query($link,$query);
