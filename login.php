@@ -1,7 +1,12 @@
 <?php
     session_start();
     include('admin/db_connect.php');
-   
+    
+    if(!isset($_SESSION["mess_id"]))
+   {
+     header('location:mess_login.php');
+   }
+
     $err="";
     if($_POST){
     $studentname = $_POST['student_user_name'];
