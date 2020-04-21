@@ -7,13 +7,13 @@
      header('location:mess_login.php');
    }
 
-    $err="";
+       $err="";
     if($_POST){
     $studentname = $_POST['student_user_name'];
     $studentpassword= $_POST['student_password'];
     $idcheck=$_SESSION['mess_id'];
 
-    $date= date('Y-m-d', strtotime("+5 hours 30 min"));
+  $date= date('Y-m-d', strtotime("+5 hours 30 min"));
 	$query="SELECT * FROM `student_info` WHERE  uid = '$studentname' AND Mess ='$studentpassword'";
   $query2="SELECT * FROM `mess_info` WHERE mess_id='$idcheck'";
   $result = mysqli_query($link,$query) or die(mysqli_error());
