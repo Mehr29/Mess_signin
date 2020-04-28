@@ -12,3 +12,11 @@ mess-1 username-mess1, password- mess1
 mess-1 username -mess2 , password-mess2
 student attendance username- f20******
 student attendance password- MESS-1 or MESS-2(Depending upon the registered mess).
+**HERE ARE CERTAIN SCREENSHOTS TO THE PROJECT**
+![basic Dashboard](ScreenShots/Mess_Dashboard.JPG)
+![Unsuccessful attempt](ScreenShots/Unsucessful_attempt.JPG)
+![Successfull](ScreenShots/successful%20attendance.JPG)
+![](ScreenShots/Student_login_portal.JPG)
+![](ScreenShots/Reattempt.JPG)
+![](ScreenShots/Mess_Signin_Mess_login.JPG)
+
