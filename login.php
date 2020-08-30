@@ -59,7 +59,7 @@
               setcookie("$name","1234",strtotime("+5 hours 30 min")+60*60*2);
               $query1="INSERT INTO `mess_attendance` VALUES('','$name1','$id','$type','$date1', '$time','$studentpassword')";
               mysqli_query($link,$query1)or die(mysqli_error());
-            $err.= "<div class='alert alert-sucess' id ='err'> ".$row1['Name']." <label class = 'text-info'> ,You have entered in at  ".date("h:m:s a", strtotime($time))."</label></div>";
+            $err.= "<div class='alert alert-sucess' id ='err'> ".$row1['Name']." <label class = 'text-info'> ,You have entered in at  ".$time."</label></div>";
             }
   }}
 else

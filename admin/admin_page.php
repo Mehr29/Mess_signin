@@ -27,7 +27,7 @@ $row=mysqli_fetch_array($result);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>!
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
   <!--<link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
   <script src="../js/jquery.min.js"></script>
